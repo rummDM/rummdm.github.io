@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quazi.io - Marketing Intelligence in Action</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #1e3a8a;
+        }
+
+        .cta-button {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #1e3a8a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #1e3a8a;
+            color: white;
+            padding: 120px 0 80px;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Problems Section */
+        .problems-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .problem-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 80px 0;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+        }
+
+        .solution-section .section-title {
+            color: white;
+        }
+
+        .solution-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Why This Matters Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        /* How It Works Section */
+        .how-it-works-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1e3a8a;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .problems-grid,
+            .features-grid,
+            .benefits-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">QUAZI.IO</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pilot">Join Pilot</a></li>
+                    </ul>
+                </nav>
+                <a href="#pilot" class="cta-button">Sign Up Free</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Marketing Intelligence<br>in Action</h1>
+            <p>The first-ever real-time, 360-degree marketing measurement and optimization platform</p>
+            <a href="#pilot" class="cta-button" style="background: white; color: #1e3a8a; padding: 15px 30px; font-size: 1.1rem;">🚀 Sign Up for Free Today!</a>
+        </div>
+    </section>
+
+    <section class="problems-section">
+        <div class="container">
+            <h2 class="section-title">Marketing is Broken</h2>
+            <p class="section-subtitle">Marketing today is slow, fragmented, expensive, and reactive. Despite billions spent, brands still struggle with:</p>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon">✘</div>
+                    <h3>Blind Budgeting</h3>
+                    <p>Where is the money going?</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">✘</div>
+                    <h3>Slow, Stale Insights</h3>
+                    <p>Post-mortem analytics that don't drive action</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">✘</div>
+                    <h3>Siloed Data</h3>
+                    <p>Walled gardens, disconnected channels, and no single view of the audience</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">✘</div>
+                    <h3>ROI Mysteries</h3>
+                    <p>Can't confidently prove what's working</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">✘</div>
+                    <h3>High Costs & Complexity</h3>
+                    <p>Long onboarding, high fees, & human-dependent processes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section" id="solution">
+        <div class="container">
+            <h2 class="section-title">Insight Revolution is Here</h2>
+            <p class="section-subtitle">Imagine having a real-time, 360-degree view of your marketing performance. Imagine making data-driven decisions in the moment. Actionable Insights, Delivered Instantly, Is here.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>✔ Superior & Proven Methodology</h3>
+                    <p>Built on years of R&D with proprietary architecture</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✔ Cross-media & Full-funnel</h3>
+                    <p>Complete visibility across all channels and touchpoints</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✔ Always-on & Real-time</h3>
+                    <p>Live insights streaming 24/7, empowering instant decision-making</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✔ Intelligent & Predictive</h3>
+                    <p>AI-powered recommendations that anticipate opportunities</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✔ Fully Managed & Automated</h3>
+                    <p>Hands-off operation with intelligent automation</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✔ Privacy-first & Future-proof</h3>
+                    <p>Built for compliance with evolving privacy regulations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why this Matters to You</h2>
+            <p class="section-subtitle">This isn't just another marketing tool. It's a competitive weapon. With Quazi, you can achieve the 6Cs:</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>✔ (Causality) Know What Works</h3>
+                    <p>True incremental value of marketing spend. Guess, no more!</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✔ (Coverage) Oversee 100% Spend</h3>
+                    <p>Cross-channel, full funnel KPIs oversight. Compromise, no more!</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✔ (Celerity) Act Instantly</h3>
+                    <p>Actionable insights, streaming in real-time. Wait, no more!</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✔ (Campaign Activation) Maximize Performance</h3>
+                    <p>Goal based, inflight optimization. Miss, no more!</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✔ (Convenience) Unify Analytics Effortlessly</h3>
+                    <p>Single view across all platforms. Stress, no more!</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✔ (Compliance) Adhere & Adapt to Regulations</h3>
+                    <p>Privacy by design. Fret, no more!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How it Works</h2>
+            <p class="section-subtitle">Simple integration, powerful results</p>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Connect & Ingest</h3>
+                    <p>Integrate with Ad platform & first-party data sources</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Analyze & Measure</h3>
+                    <p>Unified modeling for attribution and causal impact</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Predict & Recommend</h3>
+                    <p>Real-time, actionable optimizations</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Activate & Automate</h3>
+                    <p>Intelligent budget shifts & audience activation</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Monitor & Validate</h3>
+                    <p>Continuous performance tracking & learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="pilot">
+        <div class="container">
+            <h2>Join the Vanguard</h2>
+            <p>We're looking for bold, visionary brands to join our pilot program. Be among the first to experience the power of Quazi and shape the Future of Marketing. In return, you'll receive exclusive access, dedicated support, and the opportunity to influence the product roadmap.</p>
+            
+            <a href="mailto:info@quazi.io" class="cta-button" style="background: white; color: #1e3a8a; padding: 15px 30px; font-size: 1.2rem;">🚀 Sign up for free today! Elevate your marketing.</a>
+            
+            <div class="contact-info">
+                📧 Contact us at info@quazi.io<br>
+                🌐 Visit quazi.io for more details
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>The Future of Marketing Intelligence Starts Here. QUAZI.IO</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
